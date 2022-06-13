@@ -33,12 +33,13 @@ function createSliderMult(slides, leftControl, rightControl, delay){
     rightControl.click(function(){ nextSlide(); clearInterval(slideLoop); });
 
     // RESIZE HANDLE
-    function getCardWidth(){ 
+    function resizeEvent(){ 
       MAX = Math.ceil( slides.length / Math.floor( slider.width()/slides.width() ) ); 
+      console.log(MAX);
       WIDTH = slides.width(); 
       moveSlide() 
     }
-    $(window).resize(getCardWidth);
+    $(window).resize(resizeEvent);
 
     // MOBILE FINGER SWIPE DETECTION
     slider.on("touchstart", handleTouchStart);    

@@ -1,19 +1,9 @@
-/** createSlider
- * Creates Slider in Div
- * Moves only one slide per click
- * @param {Element} slides 
- * @param {Element} leftControl 
- * @param {Element} rightControl 
- * @param {Boolean} hasKeepClass // 0 or 1
- * @param {Integer} delay // ms
- * @param {String} currentClass // class to add to current slider
- */
-function createSlider(slides, leftControl, rightControl, hasKeepClass, delay, currentClass){
-  if(slides.length-hasKeepClass > 1){
-    slides.eq(0).addClass(currentClass);
+function createSliderMult(slides, leftControl, rightControl, delay){
+  if(slides.length > 1){
+
     const slider = slides.parent();
     const MIN = 0;
-    const MAX = slides.length - hasKeepClass; 
+    let MAX = Math.ceil( slides.length / Math.floor( slider.width()/slides.width() ) ); 
     let WIDTH = slider.width();
     let index = 0;
     let slideLoop = setInterval(nextSlide, delay);
@@ -21,28 +11,20 @@ function createSlider(slides, leftControl, rightControl, hasKeepClass, delay, cu
     function moveSlide(){ slides.css("right", index * WIDTH + "px"); }
     function nextSlide(){
       if(index + 1 < MAX){
-        slides.eq(index).removeClass(currentClass);
         index++;
-        slides.eq(index).addClass(currentClass); 
         moveSlide(); 
       } else { 
-        slides.eq(index).removeClass(currentClass);
         index = MIN;
-        slides.eq(index).addClass(currentClass); 
         moveSlide(); 
       }
     }
     function prevSlide(){
       if(index - 1 >= MIN){
-        slides.eq(index).removeClass(currentClass);
         index--;
-        slides.eq(index).addClass(currentClass); 
         moveSlide(); 
       } 
       else {
-        slides.eq(index).removeClass(currentClass);
         index = MAX-1;
-        slides.eq(index).addClass(currentClass);
         moveSlide(); 
       }
     }
@@ -51,7 +33,11 @@ function createSlider(slides, leftControl, rightControl, hasKeepClass, delay, cu
     rightControl.click(function(){ nextSlide(); clearInterval(slideLoop); });
 
     // RESIZE HANDLE
-    function getCardWidth(){ WIDTH = slides.width(); moveSlide() }
+    function getCardWidth(){ 
+      MAX = Math.ceil( slides.length / Math.floor( slider.width()/slides.width() ) ); 
+      WIDTH = slides.width(); 
+      moveSlide() 
+    }
     $(window).resize(getCardWidth);
 
     // MOBILE FINGER SWIPE DETECTION
@@ -83,7 +69,6 @@ function createSlider(slides, leftControl, rightControl, hasKeepClass, delay, cu
       yDown = null;                                             
     };
   } else {
-    slides.eq(0).addClass(currentClass);
     leftControl.remove();
     rightControl.remove();
   }

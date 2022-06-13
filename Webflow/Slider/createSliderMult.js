@@ -36,7 +36,7 @@ function createSliderMult(slides, leftControl, rightControl, delay){
     function resizeEvent(){ 
       MAX = Math.ceil( slides.length / Math.floor( slider.width()/slides.width() ) ); 
       console.log(MAX);
-      WIDTH = slides.width(); 
+      WIDTH = slider.width(); 
       moveSlide() 
     }
     $(window).resize(resizeEvent);
@@ -47,7 +47,7 @@ function createSliderMult(slides, leftControl, rightControl, delay){
     let xDown = null;                                                        
     let yDown = null;
     function getTouches(evt) {
-      return evt.touches ||             // browser API
+      return evt.touches ||  // browser API
         evt.originalEvent.touches; // jQuery
     }                                                     
     function handleTouchStart(evt) {

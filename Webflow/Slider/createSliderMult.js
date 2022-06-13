@@ -1,4 +1,10 @@
-// Same as createSlider but moves all shown slides 
+/**
+ * Same as createSlider but moves all shown slides 
+ * @param {Element} slides 
+ * @param {Element} leftControl 
+ * @param {Element} rightControl 
+ * @param {Int} delay 
+ */
 function createSliderMult(slides, leftControl, rightControl, delay){
   if(slides.length > 1){
 

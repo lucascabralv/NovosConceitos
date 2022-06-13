@@ -51,7 +51,7 @@ function createSlider(slides, leftControl, rightControl, hasKeepClass, delay, cu
     rightControl.click(function(){ nextSlide(); clearInterval(slideLoop); });
 
     // RESIZE HANDLE
-    function getCardWidth(){ WIDTH = slides.width(); moveSlide() }
+    function getCardWidth(){ WIDTH = slider.width(); moveSlide() }
     $(window).resize(getCardWidth);
 
     // MOBILE FINGER SWIPE DETECTION

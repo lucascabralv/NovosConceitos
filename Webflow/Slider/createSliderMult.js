@@ -1,3 +1,4 @@
+// Same as createSlider but moves all shown slides 
 function createSliderMult(slides, leftControl, rightControl, delay){
   if(slides.length > 1){
 
@@ -35,9 +36,9 @@ function createSliderMult(slides, leftControl, rightControl, delay){
     // RESIZE HANDLE
     function resizeEvent(){ 
       MAX = Math.ceil( slides.length / Math.floor( slider.width()/slides.width() ) ); 
-      console.log(MAX);
       WIDTH = slider.width(); 
-      moveSlide() 
+      index = MIN;
+      moveSlide();
     }
     $(window).resize(resizeEvent);
 

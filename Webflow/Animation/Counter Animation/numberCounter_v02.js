@@ -20,13 +20,14 @@ function numberCounter(objID, start, end, duration){
 		var docViewBottom = docViewTop + $(window).height();
 		var elemTop = $(elem).offset().top;
 		var elemBottom = elemTop + $(elem).height();
-    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+    		return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
 	}
 
 	function inView() {
 		if(playAnimation && isScrolledIntoView(obj)){
 			animateValue(obj, start, end, duration);
 			playAnimation = false;
+			$(window).unbind("scroll", inView);
 		}
 	}
 

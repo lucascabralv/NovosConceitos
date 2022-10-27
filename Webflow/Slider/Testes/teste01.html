@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style>
+body {
+  width: 5000px;
+}
+#wrapper{
+	height: 200px;
+    width: 200px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: collumn;
+    overflow-x: overlay;
+    scroll-snap-type: x mandatory;
+    transition: all 500ms;
+    padding-bottom: 40px;
+    scroll-behavior: smooth;
+}
+
+.square{
+	height: 200px;
+    min-width: 200px;
+    scroll-snap-align: start;
+    margin: 0;
+}
+.a{
+	background-color: red;
+}
+.b{
+	background-color: blue;
+}
+.c{
+	background-color: black;
+}
+.d{
+	background-color: purple;
+}
+.e{
+	background-color: grey;
+}
+.f{
+	background-color: gold;
+}
+</style>
+
+<body>
+<h1>The Window Object</h1>
+<h2>The scrollTo() Method</h2>
+<button onclick="scrollPrev()">Prev !</button>
+<button onclick="scrollNext()">Next !</button><br><br>
+<div id="wrapper">
+	<div class="square a"></div>
+    <div class="square b"></div>
+    <div class="square c"></div>
+    <div class="square d"></div>
+    <div class="square e"></div>
+    <div class="square f"></div>
+</div>
+
+
+
+<script>
+let allow = true;
+function scrollPrev() {
+	if(allow){
+    	allow = false;
+    	$(".square:last-of-type").prependTo("#wrapper");
+  		document.getElementById('wrapper').scrollBy(-10, 0);
+        setTimeout(()=>{allow=true},500);
+    } 
+}
+
+function scrollNext() {
+	if(allow){
+    	allow = false;
+    	document.getElementById('wrapper').scrollBy(10, 0);
+  		setTimeout(function(){
+  			$(".square:first-of-type").appendTo("#wrapper");
+    		document.getElementById('wrapper').scrollTo(0, 0);
+  		}, 500);
+        setTimeout(()=>{allow=true},500);
+    } 
+
+  
+}
+</script>
+
+</body>
+</html>

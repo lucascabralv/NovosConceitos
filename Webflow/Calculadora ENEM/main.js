@@ -6,12 +6,15 @@ let nota = 0;
 let modalidade = "Presencial";
 
 let nome = null;
+let sobrenome = null;
 let telefone = null;
 let email = null;
 let escolaridade = null;
 
 let interesse = null;
 let pretende = null;
+
+let desconto = 0;
 
 /**--------------------------------------------
  *h/               FIRST STEP
@@ -20,11 +23,13 @@ $(".range-slider").on("input", function () {
   nota = $(this).val();
   $("#Nota").val(nota);
   checkNota();
+  desconto = calcDesconto(nota);
 });
 $("#Nota").on("input", function () {
   nota = $(this).val();
   $(".range-slider").val(nota);
   checkNota();
+  desconto = calcDesconto(nota);
 });
 
 function checkNota() {
@@ -71,11 +76,15 @@ $(".form-calc-modalidade").click(function () {
  *h/               SECOND STEP
  *---------------------------------------------**/
 
-$("#Nome").on("input", function () {
+$("#name").on("input", function () {
   nome = $(this).val();
   checkFields();
 });
-$("#Telefone").on("input", function () {
+$("#lastname").on("input", function () {
+  sobrenome = $(this).val();
+  checkFields();
+});
+$("#mobilephone").on("input", function () {
   telefone = $(this).val();
   checkFields();
 });
@@ -119,10 +128,15 @@ $("#Pretende-DP .form-calc-dropdown-link").click(function () {
  *h/               CHECK FIELDS
  *---------------------------------------------**/
 function checkFields() {
-  if (nome && telefone && email && escolaridade) {
+  if (nome && sobrenome && telefone && email && escolaridade) {
+    $("input[name='modalidade']").val(modalidade);
+    $("input[name='escolaridade']").val(escolaridade);
+    $("input[name='desconto_enem']").val(desconto);
     $("#next-overflow-2").css("display", "none");
   }
   if (interesse && pretende) {
+    $("input[name='graduacao_curso']").val(interesse);
+    $("input[name='pretende_se_matricular_em_breve']").val(pretende);
     $("#next-overflow-3").css("display", "none");
   }
 }
@@ -146,4 +160,29 @@ function nextSlide() {
 $(window).resize(() => {
   WIDTH = $(".form-calc-page").outerWidth();
   moveSlide();
+});
+
+/**--------------------------------------------
+ *h/               NOTA ENEM
+ *---------------------------------------------**/
+
+function calcDesconto(notaENEM){
+  let desconto = 0;
+  switch (true) {
+    case notaENEM <= 450: 
+      desconto = 20;
+      break;
+    case notaENEM <= 700: 
+      desconto = 50;
+      break;
+    default:
+      desconto = 65;
+      break;
+  }
+  return desconto;
+}
+
+$("#send-calc").click(function(){
+  $("#success-desconto").text(desconto);
+  $("#success-nome").text(nome);
 });

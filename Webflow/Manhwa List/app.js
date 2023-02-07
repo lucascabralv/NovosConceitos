@@ -47,7 +47,7 @@ async function createDBManhwa(manhwa) {
 }
 
 /**--------------------------------------------
- *todo           UPDATE MANHWA
+ *note           UPDATE MANHWA
  *---------------------------------------------**/
 async function updateDBManhwa(manhwa, id) {
   const { data, error } = await database

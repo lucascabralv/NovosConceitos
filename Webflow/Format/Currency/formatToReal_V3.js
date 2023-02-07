@@ -1,6 +1,6 @@
 const formatToReal = (el) => {
   el.each(function () {
-    let resp = "";
+    let resp = ""; // 
     const spltNum = $(this).text().split(".");
     let inteiros = "";
     let j = 0;

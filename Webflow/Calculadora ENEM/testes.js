@@ -169,14 +169,23 @@ $(window).resize(() => {
 function calcDesconto(notaENEM){
   let desconto = 0;
   switch (true) {
-    case notaENEM <= 450: 
-      desconto = 20;
+    case notaENEM <= 679:
+      desconto = 40;
       break;
-    case notaENEM <= 700: 
+    case notaENEM <= 699:
       desconto = 50;
       break;
+    case notaENEM <= 719:
+      desconto = 60;
+      break;
+    case notaENEM <= 779:
+      desconto = 70;
+      break;
+    case notaENEM <= 819:
+      desconto = 80;
+      break;
     default:
-      desconto = 65;
+      desconto = 90;
       break;
   }
   return desconto;

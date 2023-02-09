@@ -140,7 +140,7 @@ function calculadoraENEM() {
       $("#next-overflow-2").css("display", "none");
     }
     if (interesse && pretende) {
-      $("input[name='graduacao_curso']").val(interesse);
+      $("input[name='curso']").val(interesse);
       $("input[name='pretende_se_matricular_em_breve']").val(pretende);
       $("#next-overflow-3").css("display", "none");
     }

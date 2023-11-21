@@ -1,0 +1,67 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: grey;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.animation_wrapper {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+.animation_container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 1px solid black;
+}
+
+.piece {
+  /*background-color: #B31D22;*/
+  background-color: blue;
+  opacity: 0.4;
+  position: absolute;
+}
+
+#vertical_1 {
+  top: 0.2%;
+  width: 2.9%;
+  height: 80.8%;
+  clip-path: polygon(0 0, 100% 3.8%, 100% 100%, 0% 96.2%);
+}
+#vertical_2{
+	top: 22%;
+	left: 18.2%;
+	width: 3.9%;
+	height: 77.8%;
+	clip-path: polygon(0 3%, 100% 0%, 100% 100%, 0% 95.2%);
+}
+
+#diagonal_1{
+	top: 0.2%;
+	width: 22%;
+	height: 24.1%;
+	clip-path: polygon(0 24%, 0% 0%, 100% 91%, 83% 100%);
+}
+
+#diagonal_2{
+	top: 75.9%;
+	left: 76%;
+	width: 22%;
+	height: 24.1%;
+	clip-path: polygon(0 24%, 0% 0%, 100% 91%, 83% 100%);
+}

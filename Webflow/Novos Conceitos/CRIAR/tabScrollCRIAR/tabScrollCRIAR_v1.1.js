@@ -37,6 +37,7 @@ function tabScrollCRIAR() {
       switch (true) {
         case total_progress > 80: // R.esultados -> Current + Variando
           $("#tab_resultados").trigger("click");
+
           progressBarState(100, 100, 100, 100, calculateCurrentProgress(80));
           break;
         case total_progress > 60: // A.ções -> Current + Variando
@@ -63,29 +64,31 @@ function tabScrollCRIAR() {
     if (currentViewport === "Desktop") {
       return ((total_progress - min) / 20) * 100;
     } else {
-      return 100;
+      return -1;
     }
   }
 
   function progressBarState(
     w_contexto,
     w_recursos,
-    w_ideais,
+    w_ideias,
     w_acoes,
     w_resultados
   ) {
     if (currentViewport === "Desktop") {
       $("#p_contexto").width(w_contexto + "%");
       $("#p_recursos").width(w_recursos + "%");
-      $("#p_ideias").width(w_ideais + "%");
+      $("#p_ideias").width(w_ideias + "%");
       $("#p_acoes").width(w_acoes + "%");
       $("#p_resultados").width(w_resultados + "%");
     } else {
-      $("#p_contexto").height(w_contexto + "%");
-      $("#p_recursos").height(w_recursos + "%");
-      $("#p_ideias").height(w_ideais + "%");
-      $("#p_acoes").height(w_acoes + "%");
-      $("#p_resultados").height(w_resultados + "%");
+      // Se o valor for diferente de null, então será considerado 0, caso contrário será 100,
+      // para que apenas o pilar atual seja selecionado
+      $("#p_contexto").height(((w_contexto === -1 ) ? 100 : 0) + "%");
+      $("#p_recursos").height((w_recursos === -1 ? 100 : 0) + "%");
+      $("#p_ideias").height((w_ideias === -1 ? 100 : 0) + "%");
+      $("#p_acoes").height((w_acoes === -1 ? 100 : 0) + "%");
+      $("#p_resultados").height((w_resultados === -1 ? 100 : 0) + "%");
     }
   }
 

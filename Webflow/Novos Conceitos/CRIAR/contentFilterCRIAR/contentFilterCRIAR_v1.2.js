@@ -6,7 +6,7 @@ function contentFilterCRIAR(pilar) {
   const contents = tabPane.find(".c-item-solucoes-content");
 
   // Inicializa
-  selectSolucaoByIndex(0);
+  //selectSolucaoByIndex(0);
   
   // EVENTS
   solucoes.on("click", function () {

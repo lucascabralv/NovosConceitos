@@ -16,7 +16,7 @@ function singleSlideSlider(
     },
     get length() {
       return this.items.length;
-    },
+    }
   };
 
   if(Slider.length === 0){

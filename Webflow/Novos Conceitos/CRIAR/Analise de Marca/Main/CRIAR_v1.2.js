@@ -166,7 +166,7 @@ const CRIAR = {
           result = "proficiente";
           break;
       }
-      $("#analise_fatorK").attr("fatorK", resul);
+      $("#analise_fatorK").attr("fatorK", result);
     },
     updateGraphBars: function () {
       const {

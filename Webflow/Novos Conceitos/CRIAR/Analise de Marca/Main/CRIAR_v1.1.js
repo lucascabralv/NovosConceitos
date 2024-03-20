@@ -145,7 +145,7 @@ const CRIAR = {
     },
     updateGraphBulb: function(){
       const fatorK = CRIAR.fatorK*10;
-      const result = "";
+      let result = "";
       switch (true) {
         case fatorK < 10:
           result = "ignorante";

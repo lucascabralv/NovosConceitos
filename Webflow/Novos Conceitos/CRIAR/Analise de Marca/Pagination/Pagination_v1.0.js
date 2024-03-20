@@ -39,7 +39,7 @@ function Pagination() {
     Slider.items.css("right", Slider.index * Slider.width + "px");
   }
 
-  $(window).resize((evt) => {
+  $(window).resize(() => {
     moveSlide(); // Will keep slide in current page
   });
 }

@@ -1,0 +1,18 @@
+[quadrante="incipiente"][efetividade_1="saudavel"][efetividade_2="saudavel"] [analise_final="1"],
+[quadrante="incipiente"][efetividade_1="insalubre"][efetividade_2="insalubre"] [analise_final="2"],
+[quadrante="incipiente"][efetividade_1="saudavel"][efetividade_2="insalubre"] [analise_final="3"],
+[quadrante="incipiente"][efetividade_1="insalubre"][efetividade_2="saudavel"] [analise_final="4"],
+[quadrante="inerte"][efetividade_1="saudavel"][efetividade_2="saudavel"] [analise_final="5"],
+[quadrante="inerte"][efetividade_1="insalubre"][efetividade_2="insalubre"] [analise_final="6"],
+[quadrante="inerte"][efetividade_1="saudavel"][efetividade_2="insalubre"] [analise_final="7"],
+[quadrante="inerte"][efetividade_1="insalubre"][efetividade_2="saudavel"] [analise_final="8"],
+[quadrante="potencial"][efetividade_1="saudavel"][efetividade_2="saudavel"] [analise_final="9"],
+[quadrante="potencial"][efetividade_1="insalubre"][efetividade_2="insalubre"] [analise_final="10"],
+[quadrante="potencial"][efetividade_1="saudavel"][efetividade_2="insalubre"] [analise_final="11"],
+[quadrante="potencial"][efetividade_1="insalubre"][efetividade_2="saudavel"] [analise_final="12"],
+[quadrante="efetivo"][efetividade_1="saudavel"][efetividade_2="saudavel"] [analise_final="13"],
+[quadrante="efetivo"][efetividade_1="insalubre"][efetividade_2="insalubre"] [analise_final="14"],
+[quadrante="efetivo"][efetividade_1="saudavel"][efetividade_2="insalubre"] [analise_final="15"],
+[quadrante="efetivo"][efetividade_1="insalubre"][efetividade_2="saudavel"] [analise_final="16"]{
+	display: block;
+}

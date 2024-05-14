@@ -40,20 +40,17 @@ function Slider(obj) {
 
     // Slide Movement Functions
     function moveSlide() {
-      console.log("moveSlide", index);
       $slides.css("right", index * WIDTH + "px");
     }
 
     function nextSlide() {
       const movement = index + 1 < MAX ? index + 1 : MIN;
-      console.log("next", movement);
       changeSlideClass(movement);
       moveSlide();
     }
 
     function prevSlide() {
       const movement = index - 1 >= MIN ? index - 1 : MAX - 1;
-      console.log("previous", movement);
       changeSlideClass(movement);
       moveSlide();
     }
